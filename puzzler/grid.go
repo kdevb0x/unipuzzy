@@ -36,71 +36,13 @@ y0 \__________________________________/
 
 */
 
-const (
-	// X0 is leftmost size of grid, X27 is rightmost
-	parimeter piece = iota
-	X0
-	X1
-	X2
-	X3
-	X4
-	X5
-	X6
-	X7
-	X8
-	X9
-	X10
-	X11
-	X12
-	X13
-	X14
-	X15
-	X16
-	X17
-	X18
-	X19
-	X20
-	X21
-	X22
-	X23
-	X24
-	X25
-	X26
-	X27
+func gridSize(nsize int, xcount, ycount ...int) *Grid {
+	var grid = &Grid{
+		PieceCount: nsize,
+		Xcount:     xcount,
+		Ycount:     ycount,
+	}
 
-	// Y0 is bottommost row, Y27 is the top
-	Y0
-	Y1
-	Y2
-	Y3
-	Y4
-	Y5
-	Y6
-	Y7
-	Y8
-	Y9
-	Y10
-	Y11
-	Y12
-	Y13
-	Y14
-	Y15
-	Y16
-	Y17
-	Y18
-	Y19
-	Y20
-	Y21
-	Y22
-	Y23
-	Y24
-	Y25
-	Y26
-	Y27
-)
-
-type pieLce struct {
-	estimatedFinPos area
 }
 
 func bruteforce(timer time.Timer, pieces int) time.Duration {

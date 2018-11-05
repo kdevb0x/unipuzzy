@@ -15,9 +15,9 @@ import (
 var referenceImage image.Image
 
 type Grid struct {
-	pieceCount     int // total n
-	xcount, ycount int // number of rows (y) and columns (x)
-	pieces         []piece
+	PieceCount     int // total n
+	Xcount, Ycount int // number of rows (y) and columns (x)
+	Pieces         []piece
 }
 
 type pos struct {
