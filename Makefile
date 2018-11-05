@@ -19,7 +19,7 @@ build:
 	$(env) $(modoff) go build -ldflags=$(CGO_LDFLAGS)
 
 dockerbuild:
-	go generate dockerbuildgen.go
+	go dockerbuildgen.go
 
 dockerruntime:
 	go generate dockerruntimegen.go

@@ -1,5 +1,6 @@
-/*
+package unipuzzy
 
+/*go:generate echo >> Dockerfile << EOF
 FROM denismakogon/ffmpeg-alpine:4.0-golang
 
 LABEL maintainer="Denis Makogon. mail: lildee1991@gmail.com"
@@ -38,18 +39,18 @@ RUN apk update && \
 
 RUN mkdir /tmp/opencv && \
     cd /tmp/opencv && \
-    wget -O opencv.zip 
+    wget -O opencv.zip
 https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip && \
     unzip opencv.zip && \
-    wget -O opencv_contrib.zip 
+    wget -O opencv_contrib.zip
 https://github.com/opencv/opencv_contrib/archive/${OPENCV_VERSION}.zip && \
     unzip opencv_contrib.zip && \
-    mkdir /tmp/opencv/opencv-${OPENCV_VERSION}/build && cd 
+    mkdir /tmp/opencv/opencv-${OPENCV_VERSION}/build && cd
 /tmp/opencv/opencv-${OPENCV_VERSION}/build && \
     cmake \
     -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
-    -D 
+    -D
 OPENCV_EXTRA_MODULES_PATH=/tmp/opencv/opencv_contrib-${OPENCV_VERSION}/modules \
     -D WITH_FFMPEG=YES \
     -D INSTALL_C_EXAMPLES=NO \
@@ -74,9 +75,8 @@ ENV PKG_CONFIG_PATH /usr/local/lib64/pkgconfig
 ENV LD_LIBRARY_PATH /usr/local/lib64
 ENV CGO_CPPFLAGS -I/usr/local/include
 ENV CGO_CXXFLAGS "--std=c++1z"
-ENV CGO_LDFLAGS "-L/usr/local/lib -lopencv_core -lopencv_face -lopencv_videoio 
--lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_objdetect 
--lopencv_features2d -lopencv_video -lopencv_dnn -lopencv_xfeatures2d -lopencv_plot 
--lopencv_tracking"
-
+ENV CGO_LDFLAGS "-L/usr/local/lib -lopencv_core -lopencv_face -lopencv_videoio
+-lopencv_imgproc -lopencv_highgui -lopencv_imgcodecs -lopencv_objdetect
+-lopencv_features2d -lopencv_video -lopencv_dnn -lopencv_xfeatures2d -lopencv_plot
+-lopencv_tracking" EOF
 */
